@@ -1,0 +1,11 @@
+BROKER SCHEMA co.com.test.transaction
+
+
+CREATE COMPUTE MODULE TransactionReq_TransformMessage
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		--Copiar todo el mensaje entrante - nota:tambien se puede emplear el call y crear un procedimiento.
+		SET OutputRoot = InputRoot;
+		RETURN TRUE;
+	END;
+END MODULE;
